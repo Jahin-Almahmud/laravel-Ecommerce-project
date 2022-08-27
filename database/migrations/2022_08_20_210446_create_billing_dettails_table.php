@@ -1,0 +1,40 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('billing_dettails', function (Blueprint $table) {
+            $table->id();
+            $table->integer('order_summery_id');
+            $table->string('name');
+            $table->string('email');
+            $table->integer('division');
+            $table->integer('city');
+            $table->text('address');
+            $table->integer('postcode');
+            $table->integer('phone');
+            $table->text('message')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('billing_dettails');
+    }
+};
